@@ -24,16 +24,12 @@ public class ScriptableFormula : ScriptableObject
         {
             case TrigonometricFunction.Sin:
                 return Mathf.Sin(value);
-                break;
             case TrigonometricFunction.Cos:
                 return Mathf.Cos(value);
-                break;
             case TrigonometricFunction.Tan:
                 return Mathf.Tan(value);
-                break;
             case TrigonometricFunction.Cotang:
                 return 1 / Mathf.Tan(value);
-                break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(func), func, "No fanc name found");
         }
