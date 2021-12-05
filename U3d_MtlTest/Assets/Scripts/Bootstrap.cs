@@ -6,7 +6,7 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private Hud _hud = default;
     [SerializeField] private EntitiesProcessor _entitiesProcessor = default;
     [SerializeField] private ProgramSettings _settings = default;
-    [SerializeField] private ScriptableFormula[] _formulas = default;
+    [SerializeField] private Formula[] _formulas = default;
 
     void Start()
     {

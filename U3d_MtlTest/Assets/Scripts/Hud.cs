@@ -10,7 +10,7 @@ public class Hud : MonoBehaviour
     [SerializeField] private Text _description = default;
     [SerializeField] private Dropdown _dropdown = default;
 
-    private ScriptableFormula[] _formulas;
+    private Formula[] _formulas;
 
     private event Action<int?, int?> _onSliderChanged;
     private event Action<int> _onFormulaChanged;
@@ -27,7 +27,7 @@ public class Hud : MonoBehaviour
         _sliderZ.OnSliderChanged(value => { _onSliderChanged?.Invoke(null, value); });
     }
 
-    public void Init(ProgramSettings settings, ScriptableFormula[] formulas)
+    public void Init(ProgramSettings settings, Formula[] formulas)
     {
         _formulas = formulas;
 

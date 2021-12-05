@@ -2,18 +2,15 @@
 using UnityEngine;
 
 [CreateAssetMenu]
-public class ScriptableFormula : ScriptableObject
+public class ScriptableFormula : Formula
 {
-    public string Name;
-    public string Description;
-
     public TrigonometricFunction FunctionA;
     public TrigonometricFunction FunctionB;
 
-    public float Compute(int x, int z, float time)
+    public override float Compute(int x, int z, float time)
     {
-        var valA =Count (FunctionA, x + time);
-        var valB =Count (FunctionB, z + time);
+        var valA = Count(FunctionA, x + time);
+        var valB = Count(FunctionB, z + time);
 
         return valA * valB;
     }

@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebce9475b95f4fb592d6783fbe806849, type: 3}
-  m_Name: ProgramSettings
+  m_Script: {fileID: 11500000, guid: 734cf21ec978466db51255af9423c56d, type: 3}
+  m_Name: PureSin
   m_EditorClassIdentifier: 
-  EntityPrefab: {fileID: 5589054191059218867, guid: 4e26dea96504b4f489242d796b8d8b4a, type: 3}
-  SizeX: {x: 5, y: 100}
-  SizeZ: {x: 5, y: 100}
-  Offset: 0.3
+  Name: PureSin
+  Description: Sin
