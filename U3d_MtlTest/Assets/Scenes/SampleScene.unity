@@ -786,6 +786,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ef0f99dd371ab3e44b4f6b63ba2724bd, type: 2}
   - {fileID: 11400000, guid: 0d278f0559473464ea8dd32a487d1091, type: 2}
   - {fileID: 11400000, guid: 6a78d5babaad0624daf2791c70c773ac, type: 2}
+  - {fileID: 11400000, guid: 2c500e418b8082d40956d695c092d2a4, type: 2}
+  - {fileID: 11400000, guid: 2948c0d4f5af61e408dfee7ff9f3bb69, type: 2}
 --- !u!4 &439604040
 Transform:
   m_ObjectHideFlags: 0
@@ -812,7 +814,15 @@ PrefabInstance:
       value: SliderAmplitude
       objectReference: {fileID: 0}
     - target: {fileID: 4089905703711779316, guid: 5509b160df9ce054589dda36b6bcc4b4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089905703711779316, guid: 5509b160df9ce054589dda36b6bcc4b4, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089905703711779316, guid: 5509b160df9ce054589dda36b6bcc4b4, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4111360132463521604, guid: 5509b160df9ce054589dda36b6bcc4b4, type: 3}
@@ -897,6 +907,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4111360132463521604, guid: 5509b160df9ce054589dda36b6bcc4b4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4925309129110657897, guid: 5509b160df9ce054589dda36b6bcc4b4, type: 3}
+      propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4925309129110657897, guid: 5509b160df9ce054589dda36b6bcc4b4, type: 3}

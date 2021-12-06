@@ -41,19 +41,16 @@ public class EntitiesProcessor : MonoBehaviour
         while (true)
         {
             yield return null;
-            float timeX = 0;
-            float timeZ = 0;
+
+            var magnitude = new Vector2(_size.x, _size.y).magnitude;
 
             for (var x = 0; x < _entities.GetLength(0); x++)
             {
                 for (var z = 0; z < _entities.GetLength(1); z++)
                 {
-                    timeX = (float)x / _size.x;
-                    timeZ = (float)z / _size.y;
-
                     _entities[x, z].position = new Vector3(
                         _entities[x, z].position.x,
-                        _formula.Compute(x, z, new Vector2(timeX, timeZ).magnitude *10) * _amplitude,
+                        _formula.Compute(x, z, new Vector2(x, z).magnitude / magnitude * 2 * Mathf.PI + Time.time) * _amplitude,
                         _entities[x, z].position.z);
                 }
             }
@@ -70,20 +67,16 @@ public class EntitiesProcessor : MonoBehaviour
 
     public void OnFormulaChanged(int id)
     {
-        /*StopUpdateRoutine();
-        _formula = _formulas[id];
-        _ieUpdate = StartCoroutine(IEUpdate());*/
-
         _formula = _formulas[id];
         OnSizeChanged(null, null);
     }
-    
+
     public void OnAmplitudeChanged(float value)
     {
         _amplitude = value;
         OnSizeChanged(null, null);
     }
-    
+
     private void PopulateEntities()
     {
         _entities = new Transform[_size.x, _size.y];
@@ -110,15 +103,4 @@ public class EntitiesProcessor : MonoBehaviour
             _ieUpdate = null;
         }
     }
-
-    /*private void Start()
-    {
-        float[] values = { 0, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1 };
-
-        foreach (var value in values)
-        {
-            float newValue = value * 10;
-            Debug.Log($"sin {newValue} = {Mathf.Sin(newValue)}");
-        }
-    }*/
 }
