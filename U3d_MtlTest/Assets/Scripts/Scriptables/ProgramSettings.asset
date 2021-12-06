@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ProgramSettings
   m_EditorClassIdentifier: 
   EntityPrefab: {fileID: 5589054191059218867, guid: 4e26dea96504b4f489242d796b8d8b4a, type: 3}
-  SizeX: {x: 5, y: 100}
-  SizeZ: {x: 5, y: 100}
+  SizeX: {x: 10, y: 100}
+  SizeZ: {x: 10, y: 100}
   Offset: 0.3

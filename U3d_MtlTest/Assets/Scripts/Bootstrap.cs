@@ -12,9 +12,12 @@ public class Bootstrap : MonoBehaviour
     {
         _cameraOrbit.Init(_settings.Offset);
         _entitiesProcessor.Init(new Pool(), _settings.EntityPrefab, _settings.Offset, _formulas);
-        _hud.OnSliderChanged(_entitiesProcessor.OnSliderChanged);
+        
+        _hud.OnSizeChanged(_entitiesProcessor.OnSizeChanged);
+        _hud.OnAmplitudeChanged(_entitiesProcessor.OnAmplitudeChanged);
         _hud.OnFormulaChanged(_entitiesProcessor.OnFormulaChanged);
-        _hud.OnSliderChanged(_cameraOrbit.ChangeZoom);
+        _hud.OnSizeChanged(_cameraOrbit.ChangeZoom);
+        
         _hud.Init(_settings, _formulas);
     }
 }

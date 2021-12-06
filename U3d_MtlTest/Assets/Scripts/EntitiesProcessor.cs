@@ -11,6 +11,7 @@ public class EntitiesProcessor : MonoBehaviour
     private Coroutine _ieUpdate;
     private Formula[] _formulas;
     private Formula _formula;
+    private float _amplitude;
 
     public void Init(Pool pool, GameObject prefab, float offset, Formula[] formulas)
     {
@@ -20,7 +21,7 @@ public class EntitiesProcessor : MonoBehaviour
         _formulas = formulas;
     }
 
-    public void OnSliderChanged(int? x, int? z)
+    public void OnSizeChanged(int? x, int? z)
     {
         if (x.HasValue) _size.x = x.Value;
         if (z.HasValue) _size.y = z.Value;
@@ -31,9 +32,8 @@ public class EntitiesProcessor : MonoBehaviour
         {
             ClearEntities();
             PopulateEntities();
+            _ieUpdate = StartCoroutine(IEUpdate());
         }
-
-        _ieUpdate = StartCoroutine(IEUpdate());
     }
 
     private IEnumerator IEUpdate()
@@ -53,7 +53,7 @@ public class EntitiesProcessor : MonoBehaviour
 
                     _entities[x, z].position = new Vector3(
                         _entities[x, z].position.x,
-                        _formula.Compute(x, z, new Vector2(timeX, timeZ).magnitude),
+                        _formula.Compute(x, z, new Vector2(timeX, timeZ).magnitude *10) * _amplitude,
                         _entities[x, z].position.z);
                 }
             }
@@ -70,11 +70,20 @@ public class EntitiesProcessor : MonoBehaviour
 
     public void OnFormulaChanged(int id)
     {
-        StopUpdateRoutine();
+        /*StopUpdateRoutine();
         _formula = _formulas[id];
-        _ieUpdate = StartCoroutine(IEUpdate());
-    }
+        _ieUpdate = StartCoroutine(IEUpdate());*/
 
+        _formula = _formulas[id];
+        OnSizeChanged(null, null);
+    }
+    
+    public void OnAmplitudeChanged(float value)
+    {
+        _amplitude = value;
+        OnSizeChanged(null, null);
+    }
+    
     private void PopulateEntities()
     {
         _entities = new Transform[_size.x, _size.y];
@@ -101,4 +110,15 @@ public class EntitiesProcessor : MonoBehaviour
             _ieUpdate = null;
         }
     }
+
+    /*private void Start()
+    {
+        float[] values = { 0, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1 };
+
+        foreach (var value in values)
+        {
+            float newValue = value * 10;
+            Debug.Log($"sin {newValue} = {Mathf.Sin(newValue)}");
+        }
+    }*/
 }

@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: PureSin
   m_EditorClassIdentifier: 
   Name: PureSin
-  Description: Sin
+  Description: Sin (X+Z)
+  Amplitude: 10
